@@ -14,7 +14,7 @@ class App(object):
 
     def dispatch(self, request):
         handler = self.router.dispatch(request.full_path)
-        return handler.handle(request)
+        return getattr(handler, request.method)(request)
 
     def __call__(self, environ, start_response):
         request = Request(environ)

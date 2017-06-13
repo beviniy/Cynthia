@@ -15,7 +15,7 @@ from app import App
 
 class HelloHandler(BaseHandler):
 
-    def handle(self, request):
+    def GET(self, request):
         return Response('hello %s!' % request.args.get('name', 'world'))
 
 
